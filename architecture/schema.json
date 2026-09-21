@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AIProductArchitectContracts",
+  "description": "Shared JSON contracts for Member 1, 2, and 3",
+  "definitions": {
+    "CustomerRequirement": {
+      "type": "object",
+      "required": ["raw_prompt", "domain"],
+      "properties": {
+        "raw_prompt": { "type": "string" },
+        "domain": { "type": "string", "enum": ["ecommerce", "food_delivery", "lms", "custom"] },
+        "expected_users": { "type": "integer", "default": 50000 },
+        "monthly_budget_inr": { "type": "integer", "default": 30000 },
+        "database_preference": { "type": "string", "default": "postgresql" },
+        "object_storage": { "type": "boolean", "default": true },
+        "high_availability": { "type": "boolean", "default": true },
+        "auto_scaling": { "type": "boolean", "default": true }
+      }
+    },
+    "Suggestion": {
+      "type": "object",
+      "required": ["id", "title", "description", "category", "status"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string", "enum": ["security", "reliability", "cost", "performance"] },
+        "status": { "type": "string", "enum": ["pending", "accepted", "rejected", "modified"], "default": "pending" },
+        "impact": { "type": "string" }
+      }
+    },
+    "CloudArchitecture": {
+      "type": "object",
+      "required": ["id", "alternative_type", "total_estimated_monthly_cost_inr", "components"],
+      "properties": {
+        "id": { "type": "string" },
+        "alternative_type": { "type": "string", "enum": ["cost_optimized", "balanced", "high_performance"] },
+        "total_estimated_monthly_cost_inr": { "type": "integer" },
+        "performance_tier": { "type": "string" },
+        "availability_tier": { "type": "string" },
+        "components": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "service", "type"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "service": { "type": "string" },
+              "type": { "type": "string" },
+              "monthly_cost_inr": { "type": "integer" },
+              "config": { "type": "object" },
+              "connected_to": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    }
+  }
+}

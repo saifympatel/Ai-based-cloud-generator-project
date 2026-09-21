@@ -1,0 +1,7 @@
+{
+  "requirement_id": "REQ-001",
+  "raw_prompt": "Build an e-commerce application for 50,000 users with PostgreSQL, image storage, high availability and a \u20b930,000 monthly cloud budget.",
+  "domain": "ecommerce",
+  "expected_users": 50000,
+  "traceability_coverage": 100
+}

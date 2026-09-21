@@ -1,0 +1,14 @@
+{
+  "architecture_id": "ARCH-BALANCED-001",
+  "provider": "AWS",
+  "services": [
+    "Route53",
+    "CloudFront",
+    "ALB",
+    "EC2 AutoScaling",
+    "RDS PostgreSQL Multi-AZ",
+    "S3"
+  ],
+  "monthly_estimate_inr": 22000,
+  "security_score": 91
+}
